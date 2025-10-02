@@ -44,18 +44,25 @@ export default function Confirm() {
     setTimeout(() => {
       if (status === 'loading') setStatus('success');
     }, 1200);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
     <>
+      <style jsx global>{`
+        html, body {
+          margin: 0;
+          padding: 0;
+          height: 100%;
+        }
+      `}</style>
       <Head>
         <title>E-mail confirmado — SaldoUp</title>
       </Head>
       <main style={{
-        minHeight: '100vh', display: 'flex', flexDirection: 'column',
-        alignItems: 'center', justifyContent: 'center', padding: 24,
-        background: '#f7fafc'
+        margin: null, padding: null, minHeight: '100vh', display: 'flex', flexDirection: 'column',
+        alignItems: 'center', justifyContent: 'center',
+        background: '#0e0f0a', fontFamily: 'Arial, sans-serif'
       }}>
         <div style={{ textAlign: 'center', maxWidth: 680, width: '100%' }}>
           {/* substitua /logo.png pelo seu logo em public/ */}
@@ -67,8 +74,8 @@ export default function Confirm() {
 
           {status === 'success' && (
             <>
-              <h1 style={{ fontSize: 22, marginBottom: 8 }}>✅ E-mail confirmado!</h1>
-              <p style={{ color: '#4a5568', marginBottom: 20 }}>
+              <h1 style={{ fontSize: 22, marginBottom: 8, color: '#ffffffff', fontWeight: 700 }}>✅ E-mail confirmado!</h1>
+              <p style={{ color: '#ffffffff', marginBottom: 20 }}>
                 Obrigado por confirmar seu e-mail. Agora você pode abrir o app SaldoUp e começar.
               </p>
 
@@ -81,11 +88,11 @@ export default function Confirm() {
 
                 <div style={{ display: 'flex', gap: 8 }}>
                   <a href={playStore} target="_blank" rel="noreferrer"
-                     style={{ padding: '10px 14px', background: '#111827', color:'#fff', borderRadius:8, textDecoration:'none' }}>
+                    style={{ padding: '10px 14px', background: '#ffff', color: '#020000ff', borderRadius: 8, textDecoration: 'none' }}>
                     Play Store
                   </a>
                   <a href={iosStore} target="_blank" rel="noreferrer"
-                     style={{ padding: '10px 14px', background: '#111827', color:'#fff', borderRadius:8, textDecoration:'none' }}>
+                    style={{ padding: '10px 14px', background: '#fff', color: '#000000', borderRadius: 8, textDecoration: 'none' }}>
                     App Store
                   </a>
                 </div>

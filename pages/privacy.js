@@ -10,6 +10,9 @@ export default function PrivacyPolicy() {
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
+        margin: "0",
+        padding: "0",
+        height: "100 %"
       }}
     >
       <div style={{ maxWidth: "800px", width: "100%" }}>

@@ -115,10 +115,10 @@ export default function PrivacyPolicy() {
               Você pode solicitar a exclusão completa da sua conta enviando um
               e-mail para:{" "}
               <a
-                href="mailto:support@saldoup.app"
+                href="mailto:support@saldoup.com"
                 style={{ color: "#00C851", textDecoration: "none" }}
               >
-                support@saldoup.app
+                support@saldoup.com
               </a>
               . Após a exclusão, todos os dados serão permanentemente removidos.
             </p>
@@ -174,10 +174,10 @@ export default function PrivacyPolicy() {
             <p>
               Dúvidas ou solicitações:{" "}
               <a
-                href="mailto:support@saldoup.app"
+                href="mailto:support@saldoup.com"
                 style={{ color: "#00C851", textDecoration: "none" }}
               >
-                support@saldoup.app
+                support@saldoup.com
               </a>
             </p>
 

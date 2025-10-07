@@ -59,10 +59,10 @@ export default function DeleteAccount() {
                 <strong>Opção 2:</strong> Envie um e-mail para o nosso suporte com
                 o assunto <em>“Excluir minha conta SaldoUp”</em> para:{" "}
                 <a
-                  href="mailto:support@saldoup.app"
+                  href="mailto:support@saldoup.com"
                   style={{ color: "#00C851", textDecoration: "none" }}
                 >
-                  support@saldoup.app
+                  support@saldoup.com
                 </a>
                 .
               </li>
@@ -114,10 +114,10 @@ export default function DeleteAccount() {
             </p>
             <p>
               <a
-                href="mailto:support@saldoup.app"
+                href="mailto:support@saldoup.com"
                 style={{ color: "#00C851", textDecoration: "none" }}
               >
-                support@saldoup.app
+                support@saldoup.com
               </a>
             </p>
 

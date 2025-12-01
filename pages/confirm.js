@@ -58,6 +58,11 @@ export default function Confirm() {
       `}</style>
       <Head>
         <title>E-mail confirmado — SaldoUp</title>
+                {/* Ícone da aba */}
+        <link rel="icon" href="/app-icon-32.png" />
+
+        {/* Fallback opcional */}
+        <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
       <main style={{
         margin: null, padding: null, minHeight: '100vh', display: 'flex', flexDirection: 'column',

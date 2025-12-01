@@ -1,3 +1,5 @@
+import Head from 'next/head';
+
 export default function DeleteAccount() {
   return (
     <>
@@ -8,6 +10,14 @@ export default function DeleteAccount() {
           height: 100%;
         }
       `}</style>
+      <Head>
+        <title>Exclusão de Conta — SaldoUp</title>
+                {/* Ícone da aba */}
+        <link rel="icon" href="/app-icon-32.png" />
+
+        {/* Fallback opcional */}
+        <link rel="shortcut icon" href="/favicon.ico" />
+      </Head>
       <main
         style={{
           minHeight: "100vh",

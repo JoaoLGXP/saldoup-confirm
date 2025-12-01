@@ -2,10 +2,21 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import Head from "next/head"; // ← ADICIONADO
 
 export default function Home() {
   return (
     <>
+      <Head>
+        <title>SaldoUp</title>
+
+        {/* Ícone da aba */}
+        <link rel="icon" href="/app-icon-32.png" />
+
+        {/* Fallback opcional */}
+        <link rel="shortcut icon" href="/favicon.ico" />
+      </Head>
+
       <style jsx global>{`
         html, body {
           margin: 0;
@@ -13,6 +24,7 @@ export default function Home() {
           height: 100%;
         }
       `}</style>
+
       <main
         style={{
           minHeight: "100vh",
@@ -79,7 +91,6 @@ export default function Home() {
 
         {/* Links secundários */}
         <div style={{ marginTop: 40 }}>
-          
           <Link href="/delete-account" style={{ color: "#DBBD52", margin: "0 10px" }}>
             Excluir Conta
           </Link>
@@ -91,7 +102,12 @@ export default function Home() {
         {/* Rodapé */}
         <footer style={{ marginTop: 60, fontSize: 14, color: "#888" }}>
           <p>© {new Date().getFullYear()} SaldoUp — Todos os direitos reservados</p>
-          <p>Contato: <a href="mailto:support@saldoup.com" style={{ color: "#DBBD52" }}>support@saldoup.com</a></p>
+          <p>
+            Contato:
+            <a href="mailto:support@saldoup.com" style={{ color: "#DBBD52" }}>
+              support@saldoup.com
+            </a>
+          </p>
         </footer>
       </main>
     </>

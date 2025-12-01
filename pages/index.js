@@ -12,9 +12,6 @@ export default function Home() {
 
         {/* Ícone da aba */}
         <link rel="icon" href="/app-icon-32.png" />
-
-        {/* Fallback opcional */}
-        <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
 
       <style jsx global>{`

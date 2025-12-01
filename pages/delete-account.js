@@ -14,9 +14,6 @@ export default function DeleteAccount() {
         <title>Exclusão de Conta — SaldoUp</title>
                 {/* Ícone da aba */}
         <link rel="icon" href="/app-icon-32.png" />
-
-        {/* Fallback opcional */}
-        <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
       <main
         style={{

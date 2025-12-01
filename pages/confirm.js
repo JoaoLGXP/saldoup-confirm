@@ -58,11 +58,8 @@ export default function Confirm() {
       `}</style>
       <Head>
         <title>E-mail confirmado — SaldoUp</title>
-                {/* Ícone da aba */}
+        {/* Ícone da aba */}
         <link rel="icon" href="/app-icon-32.png" />
-
-        {/* Fallback opcional */}
-        <link rel="shortcut icon" href="/favicon.ico" />
       </Head>
       <main style={{
         margin: null, padding: null, minHeight: '100vh', display: 'flex', flexDirection: 'column',
@@ -96,10 +93,19 @@ export default function Confirm() {
                     style={{ padding: '10px 14px', background: '#ffff', color: '#020000ff', borderRadius: 8, textDecoration: 'none' }}>
                     Play Store
                   </a>
-                  <a href={iosStore} target="_blank" rel="noreferrer"
-                    style={{ padding: '10px 14px', background: '#fff', color: '#000000', borderRadius: 8, textDecoration: 'none' }}>
-                    App Store
-                  </a>
+                  {/* Botão iOS (Desativado) */}
+                  <span style={{
+                    padding: '10px 16px',
+                    background: '#333',
+                    color: '#888',
+                    borderRadius: 8,
+                    textDecoration: 'none',
+                    fontWeight: 600,
+                    fontSize: 14,
+                    cursor: 'default'
+                  }}>
+                    Em breve (iOS)
+                  </span>
                 </div>
               </div>
             </>

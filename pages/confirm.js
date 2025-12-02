@@ -7,7 +7,7 @@ import Head from 'next/head';
 export default function Confirm() {
   const [status, setStatus] = useState('loading'); // 'loading' | 'success' | 'error' | 'already'
   const deeplink = process.env.NEXT_PUBLIC_DEEPLINK_SCHEME || 'saldoup://';
-  const playStore = process.env.NEXT_PUBLIC_ANDROID_STORE || '#';
+  const playStore = process.env.NEXT_PUBLIC_ANDROID_STORE || 'https://play.google.com/store/apps/details?id=com.lucagxp.SaldoUp&hl=pt_BR';
   const iosStore = process.env.NEXT_PUBLIC_IOS_STORE || '#';
 
   useEffect(() => {

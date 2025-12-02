@@ -56,7 +56,7 @@ export default function Home() {
         {/* Botões principais */}
         <div style={{ marginTop: 30, display: "flex", flexDirection: "column", gap: 12 }}>
           <a
-            href="https://play.google.com/store/apps/details?id=seu.id.do.app"
+            href="https://play.google.com/store/apps/details?id=com.lucagxp.SaldoUp&hl=pt_BR"
             target="_blank"
             rel="noopener noreferrer"
             style={{

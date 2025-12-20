@@ -12,6 +12,12 @@ export default function Home() {
 
         {/* Ícone da aba */}
         <link rel="icon" href="/app-icon-32.png" />
+
+        <script async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5715188931121788"
+          crossorigin="anonymous"
+        ></script>
+        
       </Head>
 
       <style jsx global>{`
@@ -55,6 +61,22 @@ export default function Home() {
 
         {/* Botões principais */}
         <div style={{ marginTop: 30, display: "flex", flexDirection: "column", gap: 12 }}>
+          <a
+            href="https://saldoup-seven.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              backgroundColor: "#DBBD52",
+              color: "#000",
+              padding: "12px 24px",
+              borderRadius: 8,
+              fontWeight: "bold",
+              textDecoration: "none",
+            }}
+          >
+            Acessar a versão web
+          </a>
+
           <a
             href="https://play.google.com/store/apps/details?id=com.lucagxp.SaldoUp&hl=pt_BR"
             target="_blank"

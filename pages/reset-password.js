@@ -98,7 +98,7 @@ export default function ResetPasswordPage() {
     <>
       <Head>
         <title>Redefinir senha — SaldoUp</title>
-        <link rel="icon" href="/app-icon-32.png" />
+        <link rel="icon" href="/icon.png" />
       </Head>
 
       <style jsx global>{`

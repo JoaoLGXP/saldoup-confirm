@@ -13,7 +13,7 @@ export default function DeleteAccount() {
       <Head>
         <title>Exclusão de Conta — SaldoUp</title>
                 {/* Ícone da aba */}
-        <link rel="icon" href="/app-icon-32.png" />
+        <link rel="icon" href="/icon.png" />
       </Head>
       <main
         style={{

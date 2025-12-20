@@ -13,7 +13,7 @@ export default function PrivacyPolicy() {
       <Head>
         <title>Política de Privacidade — SaldoUp</title>
         {/* Ícone da aba */}
-        <link rel="icon" href="/app-icon-32.png" />
+        <link rel="icon" href="/icon.png" />
       </Head>
       <main
         style={{

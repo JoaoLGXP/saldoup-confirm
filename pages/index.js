@@ -11,7 +11,7 @@ export default function Home() {
         <title>SaldoUp</title>
 
         {/* Ícone da aba */}
-        <link rel="icon" href="/app-icon-32.png" />
+        <link rel="icon" href="/icon.png" />
 
         <script async
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5715188931121788"

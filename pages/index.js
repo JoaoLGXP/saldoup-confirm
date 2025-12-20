@@ -17,7 +17,7 @@ export default function Home() {
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5715188931121788"
           crossorigin="anonymous"
         ></script>
-        
+
       </Head>
 
       <style jsx global>{`
@@ -62,7 +62,7 @@ export default function Home() {
         {/* Botões principais */}
         <div style={{ marginTop: 30, display: "flex", flexDirection: "column", gap: 12 }}>
           <a
-            href="https://saldoup-seven.vercel.app/"
+            href="https://app.saldoup.com"
             target="_blank"
             rel="noopener noreferrer"
             style={{

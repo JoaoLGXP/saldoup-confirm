@@ -10,7 +10,9 @@ export default function Home() {
       <Head>
         <title>SaldoUp - Controle Financeiro Pessoal</title>
         <meta name="description" content="O melhor aplicativo para controle de gastos pessoais, metas financeiras e organização de orçamento. Baixe o SaldoUp e transforme sua vida financeira." />
-        <link rel="icon" href="/logo.png" />
+        <link rel="icon" href="/favicon.png" type="image/png" sizes="any" />
+        <link rel="shortcut icon" href="/favicon.png" type="image/png" />
+        <link rel="apple-touch-icon" href="/favicon.png" />
 
         {/* CÓDIGO DO ADSENSE (Mantenha o seu aqui) */}
         <script

@@ -23,6 +23,10 @@ export default function Home() {
       </Head>
 
       <style jsx global>{`
+        * {
+          box-sizing: border-box; /* Isso impede que o padding aumente a largura */
+        }
+
         html, body {
           margin: 0;
           padding: 0;
@@ -30,6 +34,7 @@ export default function Home() {
           background-color: #0e0f0a;
           color: #fff;
           font-family: 'Quicksand', sans-serif;
+          overflow-x: hidden;
         }
         .section {
             padding: 60px 20px;
@@ -53,9 +58,75 @@ export default function Home() {
         h2 { color: #DBBD52; margin-bottom: 30px; }
         h3 { color: #fff; font-size: 1.2rem; margin-bottom: 10px; }
         p { color: #ccc; line-height: 1.6; }
+
+        /* HEADER SOCIAL */
+        .social-header {
+            display: flex;
+            justify-content: flex-end; /* Alinha à direita */
+            align-items: center;
+            padding: 20px 40px;
+            width: 100%;
+            position: absolute; /* Fica sobre o conteúdo */
+            top: 0;
+            left: 0;
+            z-index: 10;
+        }
+
+        .social-icon {
+            color: #fff;
+            margin-left: 20px;
+            transition: transform 0.2s, color 0.2s;
+            display: flex;
+            align-items: center;
+        }
+
+        .social-icon:hover {
+            color: #DBBD52; /* Cor Dourada do SaldoUp */
+            transform: translateY(-2px);
+        }
+
+        .social-icon svg {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+
+        /* RESPONSIVO */
+        @media (max-width: 600px) {
+            .social-header {
+                justify-content: center; /* No celular fica no meio */
+                position: relative;
+                padding: 20px;
+            }
+            .social-icon { margin: 0 15px; }
+        }
       `}</style>
 
       <main style={{ minHeight: "100vh", display: "flex", flexDirection: "column" }}>
+
+        {/* === AQUI ESTÁ A BARRA DE REDES SOCIAIS === */}
+        <header className="social-header">
+          {/* INSTAGRAM */}
+          <a href="https://instagram.com/saldoup.app" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="Instagram">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.069-4.85.069-3.204 0-3.584-.012-4.849-.069-3.225-.149-4.771-1.664-4.919-4.919-.058-1.265-.069-1.644-.069-4.849 0-3.204.012-3.584.069-4.849.149-3.225 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+            </svg>
+          </a>
+
+          {/* FACEBOOK */}
+          <a href="https://www.facebook.com/profile.php?id=61585218628540" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="Facebook">
+            <svg viewBox="0 0 24 24">
+              <path d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" />
+            </svg>
+          </a>
+
+          {/* X (TWITTER) */}
+          <a href="https://x.com/SaldoUp" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="X (Twitter)">
+            <svg viewBox="0 0 24 24">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+            </svg>
+          </a>
+        </header>
 
         {/* === HERO SECTION (O que você já tinha) === */}
         <div style={{

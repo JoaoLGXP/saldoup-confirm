@@ -66,10 +66,9 @@ export default function Confirm() {
         alignItems: 'center', justifyContent: 'center',
         background: '#0e0f0a', fontFamily: 'Arial, sans-serif'
       }}>
-        <div style={{ textAlign: 'center', maxWidth: 680, width: '100%' }}>
-          {/* substitua /logo.png pelo seu logo em public/ */}
+        <div style={{ textAlign: 'center', maxWidth: 680, width: '100%', color: '#ffffffff', fontWeight: "bold", fontSize: 22 }}>
           <div style={{ marginBottom: 16 }}>
-            <Image src="/logo.png" alt="SaldoUp" width={120} height={120} />
+            <Image src="/icon.png" alt="SaldoUp" width={120} height={160} />
           </div>
 
           {status === 'loading' && <p>Confirmando...</p>}
@@ -101,7 +100,7 @@ export default function Confirm() {
                     borderRadius: 8,
                     textDecoration: 'none',
                     fontWeight: 600,
-                    fontSize: 14,
+                    fontSize: 22,
                     cursor: 'default'
                   }}>
                     Em breve (iOS)

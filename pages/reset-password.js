@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import { useRouter } from "next/router";
-// Importa o cliente que você já usa na página de confirm
 import { supabase } from '../lib/supabaseClient';
 
 export default function ResetPasswordPage() {
@@ -13,28 +12,26 @@ export default function ResetPasswordPage() {
   const [confirm, setConfirm] = useState("");
   const [error, setError] = useState("");
 
+  // ESTADOS PARA MOSTRAR/OCULTAR SENHA
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirm, setShowConfirm] = useState(false);
+
   useEffect(() => {
-    // Ao carregar, verifica se tem o token na URL (Hash)
     const handleSession = async () => {
       const hash = window.location.hash;
       
-      // O Supabase envia: #access_token=...&refresh_token=...&type=recovery
       if (hash && hash.includes('access_token')) {
         try {
-          // Transforma o hash em parâmetros legíveis
           const params = new URLSearchParams(hash.replace('#', '?'));
           const access_token = params.get('access_token');
           const refresh_token = params.get('refresh_token');
 
-          // Loga o usuário temporariamente com esses tokens
           const { error } = await supabase.auth.setSession({ 
             access_token, 
             refresh_token 
           });
 
           if (error) throw error;
-          
-          // Se deu certo, mostra o formulário
           setStatus("form");
         } catch (err) {
           console.error(err);
@@ -42,7 +39,6 @@ export default function ResetPasswordPage() {
           setError("O link de recuperação é inválido ou expirou.");
         }
       } else {
-        // Se não tem hash, verifica se o usuário já estava logado
         const { data } = await supabase.auth.getSession();
         if (data.session) {
           setStatus("form");
@@ -76,7 +72,6 @@ export default function ResetPasswordPage() {
     setStatus("sending");
     
     try {
-      // Atualiza a senha do usuário LOGADO (nós o logamos no useEffect)
       const { error } = await supabase.auth.updateUser({ 
         password: password 
       });
@@ -84,15 +79,40 @@ export default function ResetPasswordPage() {
       if (error) throw error;
 
       setStatus("success");
-      
-      // Opcional: Deslogar após mudar a senha para forçar login no app
-      // await supabase.auth.signOut();
 
     } catch (err) {
-      setStatus("form"); // Volta para o form
+      setStatus("form");
       setError(err.message || "Erro ao atualizar a senha.");
     }
   }
+
+  // Componente interno para o Ícone de Olho (SVG)
+  const EyeIcon = ({ visible }) => (
+    <svg 
+      xmlns="http://www.w3.org/2000/svg" 
+      width="20" 
+      height="20" 
+      viewBox="0 0 24 24" 
+      fill="none" 
+      stroke="currentColor" 
+      strokeWidth="2" 
+      strokeLinecap="round" 
+      strokeLinejoin="round"
+      style={{ color: "#888" }}
+    >
+      {visible ? (
+        <>
+          <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+          <circle cx="12" cy="12" r="3"></circle>
+        </>
+      ) : (
+        <>
+          <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"></path>
+          <line x1="1" y1="1" x2="23" y2="23"></line>
+        </>
+      )}
+    </svg>
+  );
 
   return (
     <>
@@ -118,7 +138,7 @@ export default function ResetPasswordPage() {
       }}>
         <div style={{ width: "100%", maxWidth: 520, textAlign: "center" }}>
           <div style={{ marginBottom: 18 }}>
-            <Image src="/logo.png" alt="SaldoUp" width={110} height={110} />
+            <Image src="/icon.png" alt="SaldoUp" width={120} height={160} />
           </div>
 
           {status === "loading" && <p>Verificando link de segurança...</p>}
@@ -131,21 +151,80 @@ export default function ResetPasswordPage() {
               </p>
 
               <form onSubmit={submit} style={{ display: "flex", flexDirection: "column", gap: 12 }}>
-                <input
-                  type="password"
-                  placeholder="Nova senha"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  style={{ padding: "12px", borderRadius: 8, border: "1px solid #333", background: "#1a1a1a", color: "#fff" }}
-                />
+                
+                {/* CAMPO SENHA */}
+                <div style={{ position: "relative" }}>
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    placeholder="Nova senha"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    style={{ 
+                      width: "100%",
+                      padding: "12px", 
+                      paddingRight: "40px", // Espaço para o ícone não ficar em cima do texto
+                      borderRadius: 8, 
+                      border: "1px solid #333", 
+                      background: "#1a1a1a", 
+                      color: "#fff",
+                      boxSizing: "border-box"
+                    }}
+                  />
+                  <button 
+                    type="button" 
+                    onClick={() => setShowPassword(!showPassword)}
+                    style={{
+                      position: "absolute",
+                      right: "10px",
+                      top: "50%",
+                      transform: "translateY(-50%)",
+                      background: "transparent",
+                      border: "none",
+                      cursor: "pointer",
+                      display: "flex",
+                      alignItems: "center"
+                    }}
+                  >
+                    <EyeIcon visible={showPassword} />
+                  </button>
+                </div>
 
-                <input
-                  type="password"
-                  placeholder="Confirmar nova senha"
-                  value={confirm}
-                  onChange={(e) => setConfirm(e.target.value)}
-                  style={{ padding: "12px", borderRadius: 8, border: "1px solid #333", background: "#1a1a1a", color: "#fff" }}
-                />
+                {/* CAMPO CONFIRMAR SENHA */}
+                <div style={{ position: "relative" }}>
+                  <input
+                    type={showConfirm ? "text" : "password"}
+                    placeholder="Confirmar nova senha"
+                    value={confirm}
+                    onChange={(e) => setConfirm(e.target.value)}
+                    style={{ 
+                      width: "100%",
+                      padding: "12px", 
+                      paddingRight: "40px",
+                      borderRadius: 8, 
+                      border: "1px solid #333", 
+                      background: "#1a1a1a", 
+                      color: "#fff",
+                      boxSizing: "border-box"
+                    }}
+                  />
+                  <button 
+                    type="button" 
+                    onClick={() => setShowConfirm(!showConfirm)}
+                    style={{
+                      position: "absolute",
+                      right: "10px",
+                      top: "50%",
+                      transform: "translateY(-50%)",
+                      background: "transparent",
+                      border: "none",
+                      cursor: "pointer",
+                      display: "flex",
+                      alignItems: "center"
+                    }}
+                  >
+                    <EyeIcon visible={showConfirm} />
+                  </button>
+                </div>
 
                 {error && <div style={{ color: "#ff6b6b", fontWeight: 600, fontSize: 14 }}>{error}</div>}
 
